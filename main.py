@@ -6,6 +6,12 @@ from downloader import download_video
 from formats import get_format_names, get_default_format
 import threading
 
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS  # for PyInstaller
+    except AttributeError:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 def start_download(url, fmt, output_path, status_label, download_button):
     def run():
@@ -43,7 +49,7 @@ def main():
 
     # Output folder selection
     tk.Label(root, text="Download Folder:").pack(anchor="w", padx=10, pady=(10, 0))
-    output_path_var = tk.StringVar(value="downloads/")
+    output_path_var =  tk.StringVar(value=resource_path("downloads/"))
     folder_frame = tk.Frame(root)
     folder_frame.pack(fill="x", padx=10, pady=2)
     folder_entry = tk.Entry(folder_frame, textvariable=output_path_var, width=45)

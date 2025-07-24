@@ -1,0 +1,32 @@
+.vscode/
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+*.env
+*.log
+
+#Temporary files
+tempCodeRunnerFile.py
+
+# Virtual Environment
+venv/
+env/
+
+# PyInstaller build folders
+build/
+dist/
+*.spec
+
+# Installer files
+*.exe
+*.msi
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Downloads folder (if generated dynamically)
+downloads/
